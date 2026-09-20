@@ -1,0 +1,4 @@
+# Customize upstream argo-cd chart here
+
+argo-cd:
+  # Add your ArgoCD config here
