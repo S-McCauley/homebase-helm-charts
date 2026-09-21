@@ -1,2 +1,3 @@
 charts/*.tgz
 charts/*/charts/
+charts/*/*.tgz
