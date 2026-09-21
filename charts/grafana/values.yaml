@@ -1,7 +1,30 @@
 # Grafana wrapper chart values
 grafana:
+  ingress:
+    enabled: true
+    hosts:
+      - grafana.local
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: prometheus
+          type: prometheus
+          url: http://prometheus-server.monitoring.svc.cluster.local
+          access: proxy
+          isDefault: true
+
   persistence:
     enabled: true
     type: pvc
     storageClassName: local-path
+    accessModes:
+      - ReadWriteOnce
     size: 10Gi
+
+  securityContext:
+    fsGroup: 472
+
+  initChownData:
+    enabled: false
